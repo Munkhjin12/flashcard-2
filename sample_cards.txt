@@ -1,0 +1,26 @@
+# CSA311 Java Flashcards
+# Format: Q: question, A: answer
+
+Q: Java-д класс үүсгэхэд ямар түлхүүр үг ашигладаг вэ?
+A: class
+
+Q: Java-д интерфейс үүсгэхэд ямар түлхүүр үг ашигладаг вэ?
+A: interface
+
+Q: Java-д өвлөлт хийхэд ямар түлхүүр үг ашигладаг вэ?
+A: extends
+
+Q: Java-д интерфейс хэрэгжүүлэхэд ямар түлхүүр үг ашигладаг вэ?
+A: implements
+
+Q: Java-д буцаах утга байхгүй функцийн төрөл юу вэ?
+A: void
+
+Q: OOP-ийн 4 үндсэн зарчим юу вэ?
+A: Encapsulation, Inheritance, Polymorphism, Abstraction
+
+Q: ArrayList болон LinkedList-ийн ялгаа юу вэ?
+A: ArrayList нь массив дээр суурилсан, LinkedList нь холбоосон жагсаалт
+
+Q: Java-д toString() метод ямар зорилготой вэ?
+A: Объектыг мөр хэлбэрт хөрвүүлэх
