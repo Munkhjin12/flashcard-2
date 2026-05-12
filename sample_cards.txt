@@ -16,11 +16,11 @@ A: implements
 Q: Java-д буцаах утга байхгүй функцийн төрөл юу вэ?
 A: void
 
-Q: OOP-ийн 4 үндсэн зарчим юу вэ?
-A: Encapsulation, Inheritance, Polymorphism, Abstraction
+Q: c
+A: c
 
-Q: ArrayList болон LinkedList-ийн ялгаа юу вэ?
-A: ArrayList нь массив дээр суурилсан, LinkedList нь холбоосон жагсаалт
+Q: a
+A: a
 
-Q: Java-д toString() метод ямар зорилготой вэ?
-A: Объектыг мөр хэлбэрт хөрвүүлэх
+Q: b
+A: b

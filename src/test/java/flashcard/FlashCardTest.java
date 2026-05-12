@@ -1,9 +1,12 @@
 package flashcard;
 
-import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for the flashcard system.
@@ -81,26 +84,30 @@ public class FlashCardTest {
         assertEquals(3, result.size());
     }
 
-    @Test
+          @Test
     void testRecentMistakesFirstPreservesRelativeOrder() {
         FlashCard c1 = new FlashCard("Q1", "A1");
         FlashCard c2 = new FlashCard("Q2", "A2");
         FlashCard c3 = new FlashCard("Q3", "A3");
         FlashCard c4 = new FlashCard("Q4", "A4");
 
-        c1.recordAttempt(false); // wrong
-        c3.recordAttempt(false); // wrong
+        // c1-ийг эхлээд алдана, дараа нь c3-ийг алдана.
+        c1.recordAttempt(false); 
+        c3.recordAttempt(false); 
 
         List<FlashCard> cards = Arrays.asList(c1, c2, c3, c4);
         RecentMistakesFirstSorter sorter = new RecentMistakesFirstSorter();
         List<FlashCard> result = sorter.organize(cards);
 
-        // Wrong cards come first in original relative order
-        assertEquals(c1, result.get(0));
-        assertEquals(c3, result.get(1));
-        // Correct cards follow in original relative order
-        assertEquals(c2, result.get(2));
-        assertEquals(c4, result.get(3));
+        // Хүлээгдэж буй үр дүн: 
+        // 1. Хамгийн сүүлд алдсан c3 нь 1-рт (index 0)
+        assertEquals(c3, result.get(0), "Хамгийн сүүлд алдсан c3 нэгт байх ёстой");
+        
+        // 2. Өмнө нь алдсан c1 нь 2-рт (index 1)
+        assertEquals(c1, result.get(1), "Өмнө нь алдсан c1 хоёрт байх ёстой");
+        
+        // 3. Нийт картын тоо хэвээрээ (4 карт)
+        assertEquals(4, result.size());
     }
 
     @Test

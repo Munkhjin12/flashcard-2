@@ -1,6 +1,5 @@
 # Flashcard System – CSA311 Homework 1
 
-Энгийн flashcard сургалтын систем. Командын мөрийн интерфейсээр ажилладаг.
 
 ## Хэрэглэгчийн гарын авлага
 
@@ -22,6 +21,8 @@ java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar <cards-file> [
 mvn exec:java -Dexec.args="sample_cards.txt --order random --repetitions 2"
 ```
 
+alias flashcard="java -jar $(pwd)/target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar"
+
 ### Тохируулгууд
 
 | Тохируулга | Тайлбар | Default |
@@ -34,7 +35,7 @@ mvn exec:java -Dexec.args="sample_cards.txt --order random --repetitions 2"
 **Дараалалын сонголтууд:**
 - `random` – Санамсаргүй
 - `worst-first` – Хамгийн их алдаатай карт эхэнд
-- `recent-mistakes-first` – Өмнөх тойрогт буруу хариулсан карт эхэнд
+- `` – Өмнөх тойрогт буруу хариулсан карт эхэнд
 
 ### Cards файлын формат
 
@@ -59,7 +60,7 @@ java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.t
 # Урвуу горим
 java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.txt --invertCards
 ```
-
+ java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.txt --order recent-mistakes-first 
 ## Амжилтууд
 
 | Амжилт | Нөхцөл |

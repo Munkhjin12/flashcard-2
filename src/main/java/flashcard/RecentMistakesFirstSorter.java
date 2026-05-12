@@ -3,43 +3,23 @@ package flashcard;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Organizes flash cards so that cards answered incorrectly in the most recent round
- * appear first, while preserving the relative order within each group.
- *
- * <p>Strategy: Cards that were wrong in the last round come first (in their original
- * relative order), followed by cards that were correct (in their original relative order).
- */
 public class RecentMistakesFirstSorter implements CardOrganizer {
-    /**
-     * Constructs a new RecentMistakesFirstSorter.
-     */
-    public RecentMistakesFirstSorter() {}
-
-
-    /**
-     * Returns cards with recently-missed cards first.
-     * Internal ordering within wrong/correct groups is preserved.
-     *
-     * @param cards the list of cards to organize
-     * @return organized list with recent mistakes first
-     */
     @Override
     public List<FlashCard> organize(List<FlashCard> cards) {
-        List<FlashCard> wrongCards = new ArrayList<>();
-        List<FlashCard> otherCards = new ArrayList<>();
+        List<FlashCard> sortedCards = new ArrayList<>(cards);
 
-        for (FlashCard card : cards) {
-            if (card.isWrongInLastRound()) {
-                wrongCards.add(card);
-            } else {
-                otherCards.add(card);
+        sortedCards.sort((c1, c2) -> {
+            // 1. Сүүлийн тойрогт алдсан картуудыг хооронд нь цаг хугацаагаар эрэмбэлэх
+            if (c1.isWrongInLastRound() && c2.isWrongInLastRound()) {
+                return Long.compare(c2.getLastFailedTime(), c1.getLastFailedTime());
             }
-        }
+            // 2. Алдсан картыг зөв хариулсан картын өмнө гаргах
+            if (c1.isWrongInLastRound()) return -1;
+            if (c2.isWrongInLastRound()) return 1;
+            
+            return 0;
+        });
 
-        List<FlashCard> result = new ArrayList<>();
-        result.addAll(wrongCards);
-        result.addAll(otherCards);
-        return result;
+        return sortedCards;
     }
 }
