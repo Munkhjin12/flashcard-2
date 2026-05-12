@@ -59,8 +59,11 @@ java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.t
 
 # Урвуу горим
 java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.txt --invertCards
+
+# Хамгийн сүүлд алдсан картыг эхэнд гаргах горим
+java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.txt --order recent-mistakes-first
 ```
- java -jar target/flashcard-1.0-SNAPSHOT-jar-with-dependencies.jar sample_cards.txt --order recent-mistakes-first 
+
 ## Амжилтууд
 
 | Амжилт | Нөхцөл |
